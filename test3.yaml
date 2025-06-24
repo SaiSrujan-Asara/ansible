@@ -1,0 +1,16 @@
+---
+- name: remove specific yum package
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: uninstall yum package
+      yum:
+        name: htop
+        state: absent
+      register: htop
+
+    - name: print output
+      debug:
+        var: htop 

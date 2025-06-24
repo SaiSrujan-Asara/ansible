@@ -1,0 +1,16 @@
+---
+- name: install or update yum package to latest version
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: install yum pkg with latest version
+      yum:
+        name: htop
+        state: latest
+      register: htop
+
+    - name: print output
+      debug:
+        var: htop

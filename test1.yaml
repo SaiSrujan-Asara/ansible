@@ -1,0 +1,16 @@
+---
+- name: install htop package
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: install htop
+      yum:
+        name: htop
+        state: present
+      register: ht
+
+    - name: print output of installation
+      debug:
+        var: ht
